@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChemConnect | Engineering Research</title>
+    <title>ChemConnect | Engineering Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -20,158 +20,111 @@
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
         
-        /* Navbar Match */
+        /* Navbar */
         nav {
             background: var(--white);
             padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
             position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .logo { 
-            font-size: 1.5rem; font-weight: 700; color: var(--text-dark); 
-            display: flex; align-items: center; gap: 8px; 
-        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-dark); display: flex; align-items: center; gap: 8px; }
         .logo i { color: var(--secondary); font-size: 1.8rem; }
-        
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--primary); }
-        
-        .nav-btn {
-            background: var(--secondary); color: white !important;
-            padding: 8px 20px; border-radius: 20px; cursor: pointer;
-        }
+        .nav-btn { background: var(--secondary); color: white !important; padding: 8px 20px; border-radius: 20px; cursor: pointer; }
 
-        /* Hero Section Match (Split Layout) */
+        /* General Hero (عام للكيمياء) */
         .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 40px 5%;
-            background: #f0f4f8;
-            min-height: 85vh;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 60px 5%; background: #f0f4f8; min-height: 80vh;
         }
-        .hero-img { flex: 1; padding-right: 50px; }
-        .hero-img img { 
-            width: 100%; max-width: 600px; 
-            border-radius: 10px; 
-            box-shadow: -20px 20px 0px rgba(0,86,179,0.1);
-        }
+        .hero-content { flex: 1; padding-right: 40px; }
+        .hero-content h1 { font-size: 3.2rem; line-height: 1.2; color: var(--text-dark); margin-bottom: 20px; }
+        .hero-content p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 30px; max-width: 550px; }
+        .hero-btn { background: var(--primary); color: white; padding: 15px 40px; border-radius: 8px; text-decoration: none; font-weight: 600; box-shadow: 0 10px 20px rgba(0,86,179,0.2); display: inline-block; }
         
-        .hero-content { flex: 1; padding-left: 20px; }
-        .hero-content h1 { 
-            font-size: 3.5rem; line-height: 1.2; 
-            color: var(--text-dark); margin-bottom: 20px; 
-        }
-        .hero-content p { 
-            font-size: 1.1rem; color: var(--text-light); 
-            margin-bottom: 30px; max-width: 500px;
-        }
-        .start-btn {
-            background: var(--secondary); color: white;
-            padding: 15px 40px; border-radius: 8px;
-            text-decoration: none; font-weight: 600;
-            box-shadow: 0 10px 20px rgba(110, 193, 228, 0.3);
-            display: inline-block;
-        }
+        .hero-img { flex: 1; }
+        .hero-img img { width: 100%; border-radius: 15px; box-shadow: -20px 20px 0px rgba(110,193,228,0.2); }
 
-        /* Icons Section Match */
-        .features {
-            display: flex; justify-content: center; gap: 80px;
-            padding: 60px 5%; background: var(--white);
-        }
-        .feature-item { text-align: center; cursor: pointer; transition: 0.3s; }
-        .feature-item:hover { transform: translateY(-5px); }
-        .feature-icon { font-size: 2.5rem; margin-bottom: 15px; color: var(--text-dark); }
-        .feature-item:nth-child(1) .feature-icon { color: #6c5ce7; }
-        .feature-item:nth-child(2) .feature-icon { color: #00cec9; }
-        .feature-item:nth-child(3) .feature-icon { color: #0984e3; }
-        .feature-text { font-weight: 600; color: var(--text-dark); }
-
-        /* Corrosion Grid */
-        .gallery-section { padding: 80px 5%; background: var(--bg-light); }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 2.5rem; color: var(--primary); }
+        /* Features */
+        .features { display: flex; justify-content: center; gap: 60px; padding: 40px 5%; background: var(--white); margin-top: -40px; position: relative; z-index: 2; }
+        .feature-box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; width: 250px; transition: 0.3s; }
+        .feature-box:hover { transform: translateY(-10px); }
+        .feature-icon { font-size: 2rem; margin-bottom: 15px; color: var(--primary); }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        .card-body { padding: 25px; }
-        .card h3 { color: var(--primary); margin: 0 0 10px; }
+        /* Research Section (ده المكان اللي فيه البحث بتاعك) */
+        .research-section { padding: 80px 5%; background: var(--bg-light); }
+        .sec-header { text-align: center; margin-bottom: 50px; }
+        .sec-header h2 { font-size: 2.2rem; color: var(--primary); }
+        .sec-header span { color: var(--secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
 
-        /* Login Modal & Admin Styles */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; }
-        .login-box { background: white; padding: 40px; border-radius: 20px; width: 350px; text-align: center; }
-        .login-box input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; }
-        .login-box button { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px; }
-        
-        .editable { border: 2px dashed #e74c3c !important; background: rgba(231,76,60,0.05); }
-        .save-btn { position: fixed; bottom: 30px; right: 30px; background: #27ae60; color: white; padding: 15px 30px; border-radius: 50px; border: none; cursor: pointer; display: none; z-index: 1500; font-weight: bold; box-shadow: 0 5px 20px rgba(39,174,96,0.4); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+        .card-body { padding: 20px; }
+        .card h3 { color: var(--primary); margin: 0 0 10px; font-size: 1.2rem; }
+        .card p { font-size: 0.9rem; color: #666; }
 
         /* Footer */
-        footer { padding: 50px 5%; background: var(--white); text-align: center; border-top: 1px solid #eee; }
-        .social-icons { margin-top: 20px; }
-        .social-icons i { margin: 0 10px; font-size: 1.2rem; color: var(--text-dark); cursor: pointer; }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero { flex-direction: column-reverse; text-align: center; }
-            .hero-img { padding: 0; margin-bottom: 30px; }
-            .hero-content { padding: 0; }
-            .features { flex-direction: column; gap: 40px; }
-        }
+        footer { padding: 40px 5%; background: #2d3436; color: white; text-align: center; }
+        
+        /* Login Modal */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; }
+        .login-box { background: white; padding: 40px; border-radius: 15px; width: 350px; text-align: center; }
+        .login-box input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        .login-box button { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+        
+        .editable { border: 2px dashed red !important; background: rgba(255,0,0,0.05); }
+        .save-btn { position: fixed; bottom: 30px; right: 30px; background: #00b894; color: white; padding: 15px 30px; border-radius: 50px; border: none; cursor: pointer; display: none; z-index: 1500; font-weight: bold; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">
-            <i class="fas fa-atom"></i> ChemConnect
-        </div>
+        <div class="logo"><i class="fas fa-atom"></i> ChemConnect</div>
         <div class="nav-links">
             <a href="#">Home</a>
-            <a href="#">Periodic Table</a>
-            <a href="#">Experiments</a>
-            <a href="#">Articles</a>
-            <a onclick="openLogin()" class="nav-btn">Admin</a>
+            <a href="#projects">Projects</a>
+            <a href="#">Labs</a>
+            <a href="#">Team</a>
+            <a onclick="openLogin()" class="nav-btn">Admin Panel</a>
         </div>
     </nav>
 
     <header class="hero">
+        <div class="hero-content">
+            <h1 id="heroTitle" data-db="hero_title">Engineering Chemistry<br>Hub & Portfolio</h1>
+            <p id="heroDesc" data-db="hero_desc">Welcome to the official platform for student research, virtual labs, and engineering chemistry resources. Explore our latest work below.</p>
+            <a href="#projects" class="hero-btn">View Latest Projects</a>
+        </div>
         <div class="hero-img">
             <img src="lab.jpg" alt="Chemistry Lab">
-        </div>
-        <div class="hero-content">
-            <h1 id="heroTitle" data-db="hero_title">Discover the<br>Wonder of<br>Chemistry</h1>
-            <p id="heroDesc" data-db="hero_desc">Explore the engineering forms of corrosion through our interactive research platform.</p>
-            <a href="#research" class="start-btn">Start Learning</a>
         </div>
     </header>
 
     <section class="features">
-        <div class="feature-item">
+        <div class="feature-box">
             <div class="feature-icon"><i class="fas fa-flask"></i></div>
-            <div class="feature-text">Basics of Chemistry</div>
+            <h3>Virtual Labs</h3>
         </div>
-        <div class="feature-item">
-            <div class="feature-icon"><i class="fas fa-vial"></i></div>
-            <div class="feature-text">Interactive Labs</div>
+        <div class="feature-box">
+            <div class="feature-icon"><i class="fas fa-book"></i></div>
+            <h3>References</h3>
         </div>
-        <div class="feature-item">
-            <a href="#research" style="text-decoration: none;">
-                <div class="feature-icon"><i class="fas fa-microscope"></i></div>
-                <div class="feature-text">Latest Research</div>
-            </a>
+        <div class="feature-box">
+            <div class="feature-icon"><i class="fas fa-project-diagram"></i></div>
+            <h3>Student Projects</h3>
         </div>
     </section>
 
-    <section id="research" class="gallery-section">
-        <div class="section-header">
-            <h2>Forms of Corrosion</h2>
-            <p>Engineering Research Project - 2025</p>
+    <section id="projects" class="research-section">
+        <div class="sec-header">
+            <span>Current Featured Project</span>
+            <h2>Forms of Corrosion Analysis</h2>
+            <p>Supervised by Dr. Mohamed Hamed | 2025</p>
         </div>
         
         <div class="grid">
@@ -182,7 +135,6 @@
                     <p data-db="d1">Corrosion distributed uniformly over the entire exposed surface.</p>
                 </div>
             </div>
-
             <div class="card">
                 <img src="galvanic.jpg" alt="Galvanic">
                 <div class="card-body">
@@ -190,7 +142,6 @@
                     <p data-db="d2">Two dissimilar metals electrically connected in electrolyte.</p>
                 </div>
             </div>
-
             <div class="card">
                 <img src="crevice.jpg" alt="Crevice">
                 <div class="card-body">
@@ -198,7 +149,6 @@
                     <p data-db="d3">Localized corrosion within crevices or shielded areas.</p>
                 </div>
             </div>
-
             <div class="card">
                 <img src="pitting.jpg" alt="Pitting">
                 <div class="card-body">
@@ -206,32 +156,28 @@
                     <p data-db="d4">Extremely localized attack resulting in holes.</p>
                 </div>
             </div>
-            
-             <div class="card">
+            <div class="card">
                 <img src="intergranular.jpg" alt="Intergranular">
                 <div class="card-body">
                     <h3 data-db="t5">5. Intergranular Corrosion</h3>
                     <p data-db="d5">Localized attack along grain boundaries.</p>
                 </div>
             </div>
-            
-             <div class="card">
+            <div class="card">
                 <img src="dealloying.jpg" alt="Dealloying">
                 <div class="card-body">
                     <h3 data-db="t6">6. Selective Leaching</h3>
                     <p data-db="d6">Removal of one element from an alloy (Dezincification).</p>
                 </div>
             </div>
-            
-             <div class="card">
+            <div class="card">
                 <img src="erosion.jpg" alt="Erosion">
                 <div class="card-body">
                     <h3 data-db="t7">7. Erosion Corrosion</h3>
                     <p data-db="d7">Acceleration of attack due to relative movement.</p>
                 </div>
             </div>
-            
-             <div class="card">
+            <div class="card">
                 <img src="stress.jpg" alt="Stress">
                 <div class="card-body">
                     <h3 data-db="t8">8. Stress Corrosion Cracking</h3>
@@ -242,34 +188,26 @@
     </section>
 
     <footer>
-        <div class="logo" style="justify-content: center; margin-bottom: 10px;">
-            <i class="fas fa-atom"></i> ChemConnect
-        </div>
-        <p>+010 123 456 780 | www.info@gmail.com</p>
-        <div class="social-icons">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-youtube"></i>
-        </div>
+        <p>ChemConnect Platform &copy; 2025</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">Developed by Eng. Adham Sayed</p>
     </footer>
 
     <div id="loginModal" class="modal">
         <div class="login-box">
-            <h2 style="color: var(--primary);">Admin Login</h2>
+            <h2 style="color: var(--primary);">System Login</h2>
             <input type="text" id="username" placeholder="Username">
             <input type="password" id="password" placeholder="Password">
-            <button onclick="checkCredentials()">Login</button>
+            <button onclick="checkCredentials()">Access Dashboard</button>
             <button onclick="closeLogin()" style="background: #ccc; margin-top: 5px;">Cancel</button>
         </div>
     </div>
 
-    <button id="saveBtn" class="save-btn" onclick="saveToFirebase()">Save Changes</button>
+    <button id="saveBtn" class="save-btn" onclick="saveToFirebase()">Save Updates</button>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-        // ✅✅✅ المفاتيح بتاعتك تم دمجها بنجاح هنا ✅✅✅
         const firebaseConfig = {
             apiKey: "AIzaSyCXQ9aCrumfPhGFR-1eogWHmSjHzIpNYpA",
             authDomain: "cemconnect-994c9.firebaseapp.com",
@@ -282,7 +220,6 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // تحميل الداتا
         async function loadData() {
             const docRef = doc(db, "websiteData", "home");
             const docSnap = await getDoc(docRef);
@@ -296,7 +233,6 @@
         }
         loadData();
 
-        // حفظ الداتا (للأدمن)
         window.saveToFirebase = async () => {
             const btn = document.getElementById('saveBtn');
             btn.innerHTML = "Saving...";
@@ -306,8 +242,8 @@
             });
             try {
                 await setDoc(doc(db, "websiteData", "home"), dataToSave);
-                alert("Saved Successfully! ✅");
-                btn.innerHTML = "Save Changes";
+                alert("Database Updated Successfully! ✅");
+                btn.innerHTML = "Save Updates";
             } catch (e) {
                 alert("Error: " + e.message);
             }
@@ -321,20 +257,29 @@
         function checkCredentials() {
             const user = document.getElementById('username').value;
             const pass = document.getElementById('password').value;
-            // 🔐 اليوزر والباسورد بتوعك
-            if (user === "Eng_Adham Sayed" && pass === "20250003") {
+
+            // 📋 قائمة الأدمنز (زود هنا اللي أنت عايزهم)
+            const allowedAdmins = [
+                { u: "Eng_Adham Sayed", p: "20250003" },  // أنت
+                { u: "Dr_Mohamed",      p: "admin" },     // دكتور محمد
+                { u: "Admin",           p: "123456" }     // واحد احتياطي
+            ];
+
+            const foundUser = allowedAdmins.find(a => a.u === user && a.p === pass);
+
+            if (foundUser) {
                 closeLogin();
                 document.querySelectorAll('[data-db]').forEach(el => {
                     el.contentEditable = "true";
                     el.classList.add('editable');
                 });
                 document.getElementById('saveBtn').style.display = 'block';
-                alert("Admin Mode Active! 🚀");
+                alert("Welcome " + foundUser.u + "! Dashboard Active 🔓");
             } else {
-                alert("Wrong Username or Password!");
+                alert("Access Denied! ❌");
             }
         }
     </script>
 
 </body>
-      </html>
+</html>
